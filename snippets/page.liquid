@@ -1,0 +1,11 @@
+{% if page %}
+  <header>
+    <div class="post-title">
+      <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+    </div>
+  </header>
+
+  <div class="post-body" id="post_body_{{ page.id }}">
+    {{ page.body }}
+  </div>
+{% endif %}

@@ -1,0 +1,30 @@
+<div class="post-responses">
+  {{ post | share_buttons }}
+
+  {% if site.subscription_enabled? %}
+    <div class="subscribe">
+      <strong class="subscribe-like">Like this post?</strong>
+      {% form 'subscribe' include_prompt:true %}
+    </div>
+  {% endif %}
+
+  {% if site.comments_enabled? or post.response_count > 0 %}
+    <div class="count">
+      <span class="comment-icon"></span>
+      {{ post.response_count | pluralize: 'singular:response' }}
+    </div>
+    <div class="responses">
+      {% for response in post.responses %}
+        {% include 'response' %}
+      {% endfor %}
+      {% if post.anon_upvote_count > 0 %}
+        <div class="response">
+          <div class="upvote">
+            {{ post.anon_upvote_count | pluralize: 'singular:visitor' }}
+            upvoted this post.
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>

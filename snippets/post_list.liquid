@@ -1,0 +1,109 @@
+<div id="main">
+  {% if posts == empty and request.template != 'homepage' %}
+    <h2>No posts found.</h2>
+  {% endif %}
+
+  {% for post in posts %}
+    <article class="post">
+      {% include 'post' %}
+
+      <footer class="homepage-post-footer">
+        {% unless post.tags == empty %}
+          <div class="tags">
+            <h6>Tags</h6>
+            <ul>
+              {% for post_tag in post.tags %}
+                <li>
+                  <a href="{{ post_tag.url }}">{{ post_tag.name }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endunless %}
+
+        {{ post | share_buttons }}
+
+        {% if site.comments_enabled? and post.response_count > 0 %}
+          <span class="response-count">
+            <a href="{{ post.url }}">
+              {{ post.response_count | pluralize: 'singular:response' }}
+            </a>
+          </span>
+
+          <span class="slash-divider">&nbsp;&nbsp;//&nbsp;&nbsp;</span>
+        {% endif %}
+
+        <span class="display-date">
+          Posted
+          <a href="{{ post.url }}">{{ post.published_at | relative_date }}</a>
+          {% if post.show_byline? %}
+            by
+            {% if post.author.url %}
+              <a href="{{ post.author.url }}">{{ post.author.name }}</a>
+            {% else %}
+              {{ post.author.name }}
+            {% endif %}
+          {% endif %}
+        </span>
+      </footer>
+    </article>
+  {% endfor %}
+
+  {% if posts.pagination %}
+    <div class="pagination">
+      {% default_pagination %}
+    </div>
+  {% endif %}
+</div>
+
+<aside id='sidebar'>
+  {% include 'nav_menu' %}
+  {% include 'bio' %}
+
+  <section class="search-archive">
+    {% form 'archive' %}
+
+     <div class="archive-link">
+       <a href="{{ site.archive_url }}">Browse the Archive&nbsp;&raquo;</a>
+     </div>
+  </section>
+
+  {% include 'contributors_section' %}
+
+  {% if site.subscription_enabled? %}
+    <section class="subscribe">
+      {% form 'subscribe' include_prompt:true %}
+    </section>
+  {% endif %}
+
+  {% if site.tags.size > 0 %}
+    <section id="tag_list_menu">
+      <h3>Tags</h3>
+
+      <ul>
+        {% for t in site.tags limit:10 %}
+          <li>
+            {% if tag and tag == t.name %}
+              <strong>{{ t.name }}</strong>
+              <span class="measure tag-count">{{ t.post_count }}</span>
+            {% else %}
+              <a href="{{ t.url }}">{{ t.name }}</a>
+              <span class="measure tag-count">{{ t.post_count }}</span>
+            {% endif %}
+          </li>
+        {% endfor %}
+
+        {% if site.tags.size > 10 %}
+          <li>
+            <a href="{{ site.tags_url }}">
+              See all {{ site.tags.size }} tags&nbsp;&raquo;
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% include 'blogroll' %}
+  {% include 'feed' %}
+</aside>

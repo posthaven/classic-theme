@@ -1,0 +1,4 @@
+config.yml
+.ruby-version
+node_modules
+.sass-cache

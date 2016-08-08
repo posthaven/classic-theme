@@ -1,0 +1,51 @@
+{% assign show_back_to_blog = true %}
+
+<div id="main">
+  <article class="post">
+    {% include 'post' %}
+  </article>
+
+  <footer id="post_responses" class="post-responses">
+    {% include 'responses' %}
+    {% form 'comment' %}
+  </footer>
+</div>
+
+<aside id='sidebar'>
+  {% include 'nav_menu' %}
+  {% include 'bio' %}
+
+  <section class="post-date">
+    <div class="display-date">
+      Posted
+      <a href="{{ post.url }}">{{ post.published_at | relative_date }}</a>
+
+      <div class="actual-date">
+        {{ post.published_at | local_date: "%B %e, %Y at %l:%M %p" }}
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <span class="stat">
+      {{ post.view_count }}
+    </span>
+
+    <span class="measure">
+      views
+    </span>
+  </section>
+
+  {% if post.tags.size > 0 %}
+    <section class="tag-list">
+      <h3>Tags</h3>
+      <ul>
+        {% for post_tag in post.tags %}
+          <li>
+            <a href="{{ post_tag.url }}">{{ post_tag.name }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+</aside>

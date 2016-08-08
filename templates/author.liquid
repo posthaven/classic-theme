@@ -1,0 +1,9 @@
+{% assign show_excerpts = true %}
+{% capture subhead_content %}
+  <h3>
+    <strong>Posts by Author</strong>
+    {{ author.name }}
+  </h3>
+{% endcapture %}
+
+{% include 'post_list' %}

@@ -1,0 +1,7 @@
+{% if site.profile.photo %}
+  <div class="profile-pic">
+    <img src="{{ site.profile.photo.medium.url }}"
+         width="{{ site.profile.photo.medium.width }}"
+         height="{{ site.profile.photo.medium.height }}">
+  </div>
+{% endif %}

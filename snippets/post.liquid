@@ -1,0 +1,32 @@
+{% if post %}
+  <header>
+    {% if post.private? %}
+      <div class="right private-indicator">
+        <span class="lock-icon hint hint--left" data-hint="This post is private. Only you and people you've sent the link to have access to this post."></span>
+      </div>
+    {% endif %}
+
+    <div class="post-title">
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+
+      {% if request.template == 'post' and post.show_byline? %}
+        <div class="author">
+          by
+          {% if post.author.url %}
+            <a href="{{ post.author.url }}">{{ post.author.name }}</a>
+          {% else %}
+            {{ post.author.name }}
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="post-body" id="post_body_{{ post.id }}">
+    {% if show_excerpts %}
+      {{ post.excerpt }}
+    {% else %}
+      {{ post.body }}
+    {% endif %}
+  </div>
+{% endif %}

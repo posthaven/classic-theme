@@ -1,0 +1,13 @@
+{% if site.navigation_menu and site.navigation_menu.items != empty %}
+  <section>
+    <nav id="menu_navigation">
+      <ul>
+      {% for menu_item in site.navigation_menu.items %}
+        <li id="menu_item_{{ menu_item.id }}" class="menu-item {{ menu_item.url | text_if_current}}">
+          <a href="{{ menu_item.url }}">{{ menu_item.title }}</a>
+        </li>
+      {% endfor %}
+      </ul>
+    </nav>
+  </section>
+{% endif %}

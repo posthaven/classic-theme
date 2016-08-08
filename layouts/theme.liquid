@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class='no-js'>
+  <head>
+    <title>{{ request.page_title }}</title>
+
+    <meta content='width=device-width,initial-scale=1' name='viewport'>
+
+    {{ meta_tags }}
+
+    <link href="{{ 'images/favicon.ico' | asset_url }}" rel='shortcut icon' type='image/x-icon'>
+    <link href="//fonts.googleapis.com/css?family=Oxygen:400,700,300|Crimson+Text:400,400italic&amp;subset=latin,latin-ext"
+          media="screen" rel="stylesheet" type="text/css" />
+    {{ 'blog.css' | asset_url | stylesheet_tag }}
+
+    {{ posthaven.includes_for_head }}
+  </head>
+
+  <body id='site_{{ site.id }}'>
+    <div id='container'>
+      {{ posthaven.user_menu }}
+
+      <header id='topbar'>
+        <a href="{{ posthaven.url }}"><div class='posthaven-tab'></div></a>
+      </header>
+
+      <div id='flash'>
+        {% for alert in posthaven.alerts %}
+          <div class="alert alert-{{ alert.type }}">
+            {{ alert.message }}
+          </div>
+        {% endfor %}
+      </div>
+
+      {% unless hide_header %}
+        <header id='header'>
+          <h1>
+            <a href="{{ site.url }}">{{ site.name | smarty_pants }}</a>
+          </h1>
+
+          {% if site.description %}
+            <h2>{{ site.description | smarty_pants }}</h2>
+          {% endif %}
+
+          {% if subhead_content %}
+            <section class="subhead">
+              {{ subhead_content }}
+
+              <div class="back-to-blog">
+                <a href="{{ site.url }}">&laquo;&nbsp;Back to blog</a>
+              </div>
+            </section>
+          {% elsif show_back_to_blog %}
+            <div class="back-to-blog">
+              <a href="{{ site.url }}">&laquo;&nbsp;Back to blog</a>
+            </div>
+          {% endif %}
+        </header>
+      {% endunless %}
+
+      <div id='main_container'>
+        {{ content_for_layout }}
+      </div>
+    </div>
+
+    {{ posthaven.includes_for_body }}
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{% unless site.contributors == empty %}
+  <section id="contributors">
+  <h3>Contributors</h3>
+  <ul>
+    {% for contributor in site.contributors %}
+      <li class="contributor {{ contributor.url | text_if_current }}">
+        <a href="{{ contributor.url }}">{{ contributor.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  </section>
+{% endunless %}

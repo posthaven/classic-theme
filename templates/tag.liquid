@@ -1,0 +1,10 @@
+{% assign show_excerpts = true %}
+
+{% capture subhead_content %}
+   <h3>
+     <strong>Tag</strong>
+     {{ tag.name }}
+   </h3>
+{% endcapture %}
+
+{% include 'post_list' %}
