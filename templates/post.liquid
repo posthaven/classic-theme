@@ -27,13 +27,9 @@
   </section>
 
   <section class="stats">
-    <span class="stat">
-      {{ post.view_count }}
-    </span>
-
-    <span class="measure">
-      views
-    </span>
+    <div class="stat">
+      {{ post | view_count: 'view' }}
+    </div>
   </section>
 
   {% if post.tags.size > 0 %}

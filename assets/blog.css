@@ -887,11 +887,11 @@ blockquote.posterous_long_quote {
     #sidebar section .stat {
       color: #666;
       font-weight: bold; }
-    #sidebar section .tag-count {
-      font-size: 12px; }
-    #sidebar section .measure {
+    #sidebar section .stat .posthaven-count-label {
       color: #aaa;
       font-weight: normal; }
+    #sidebar section .tag-count {
+      font-size: 12px; }
     #sidebar section li.hidden-tag {
       display: none; }
     #sidebar section .show-tags {
