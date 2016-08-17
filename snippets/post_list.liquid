@@ -26,7 +26,7 @@
         {% if site.comments_enabled? and post.response_count > 0 %}
           <span class="response-count">
             <a href="{{ post.url }}">
-              {{ post.response_count | pluralize: 'singular:response' }}
+              {{ post.response_count | pluralize: 'response' }}
             </a>
           </span>
 
@@ -76,7 +76,7 @@
     </section>
   {% endif %}
 
-  {% if site.tags.size > 0 %}
+  {% if site.tags != empty %}
     <section id="tag_list_menu">
       <h3>Tags</h3>
 

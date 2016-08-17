@@ -11,7 +11,7 @@
   {% if site.comments_enabled? or post.response_count > 0 %}
     <div class="count">
       <span class="comment-icon"></span>
-      {{ post.response_count | pluralize: 'singular:response' }}
+      {{ post.response_count | pluralize: 'response' }}
     </div>
     <div class="responses">
       {% for response in post.responses %}
@@ -20,7 +20,7 @@
       {% if post.anon_upvote_count > 0 %}
         <div class="response">
           <div class="upvote">
-            {{ post.anon_upvote_count | pluralize: 'singular:visitor' }}
+            {{ post.anon_upvote_count | pluralize: 'visitor' }}
             upvoted this post.
           </div>
         </div>
