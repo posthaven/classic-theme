@@ -1,0 +1,24 @@
+---
+archive:
+  back_to_all_dates: « Back to All Dates
+  no_results: No results found.
+  previous_page: « Previous Page
+  next_page: Next Page »
+
+forms:
+  comment:
+    url_prompt: Add Website URL »
+
+  subscribe:
+    follow_link: Follow this Posthaven »
+    prompt: |
+      <strong>Subscribe by email »</strong>
+      <span>We'll email you when there are new posts here.</span>
+    unfollow_link: Unfollow »
+
+pagination:
+  first: ‹ First
+  previous: « Previous
+  gap: …
+  next: Next ›
+  last: Last »
