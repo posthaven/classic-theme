@@ -26,3 +26,7 @@ Watch `src/blog.scss` and build on update:
 ```
 rake watch
 ```
+
+## Screenshot
+
+![Screenshot](/assets/screenshot.png?raw=true)
