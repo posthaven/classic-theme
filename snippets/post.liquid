@@ -23,10 +23,10 @@
   </header>
 
   <div class="post-body" id="post_body_{{ post.id }}">
-    {% if show_excerpts %}
-      {{ post.excerpt }}
-    {% else %}
+    {% if post.url.current_page? %}
       {{ post.body }}
+    {% else %}
+      {{ post.excerpt_or_body }}
     {% endif %}
   </div>
 {% endif %}
