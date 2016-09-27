@@ -16,6 +16,8 @@ forms:
       <span>We'll email you when there are new posts here.</span>
     unfollow_link: Unfollow »
 
+read_more: Read more »
+
 pagination:
   first: ‹ First
   previous: « Previous
