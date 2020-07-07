@@ -376,6 +376,13 @@ $logoWidth: 100px;
   font-size: $bodyFontSize;
   color: $bodyColor;
   margin-top: 40px; margin-bottom: 80px;
+
+  > figure {
+    img {
+      max-height: 60vh;
+    }
+  }
+
   .post-body {
     h1, h2, h3 { color: #333; margin-top: 30px;  }
     h1 { font-size: 22px; }

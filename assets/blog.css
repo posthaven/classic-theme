@@ -993,6 +993,8 @@ blockquote.posterous_long_quote {
   margin-bottom: 80px;
   /* responsive resize */
   /* IE8 css bug */ }
+  .post > figure img {
+    max-height: 60vh; }
   .post .post-body h1, .post .post-body h2, .post .post-body h3 {
     color: #333;
     margin-top: 30px; }
